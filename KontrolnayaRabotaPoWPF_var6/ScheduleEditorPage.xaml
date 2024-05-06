@@ -1,0 +1,50 @@
+﻿<Page x:Class="KontrolnayaRabotaPoWPF_var6.ScheduleEditorPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:KontrolnayaRabotaPoWPF_var6"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="800"
+      Title="ScheduleEditorPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Комбобоксы для выбора значений -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
+            <ComboBox x:Name="GroupComboBox" Width="150" DisplayMemberPath="GroupName" SelectedValuePath="GroupId" SelectionChanged="GroupComboBox_SelectionChanged"/>
+            <ComboBox x:Name="SubjectComboBox" Width="150" DisplayMemberPath="SubjectName" SelectedValuePath="SubjectId"/>
+            <ComboBox x:Name="TeacherComboBox" Width="150" DisplayMemberPath="TeacherName" SelectedValuePath="TeacherId"/>
+            <ComboBox x:Name="LessonCabinetNumberComboBox" Width="100" DisplayMemberPath="Number_cabinet" SelectedValuePath="CabinetId"/>
+
+            <Button Content="Добавить" Click="AddButton_Click" Margin="10,0,0,0"/>
+            <Button Content="Удалить" Click="DeleteButton_Click" Margin="10,0,0,0"/>
+        </StackPanel>
+
+        <!-- Календарь для выбора даты -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="5">
+            <Calendar x:Name="LessonDateCalendar" SelectedDatesChanged="LessonDateCalendar_SelectedDatesChanged"/>
+            <StackPanel>
+                <TextBlock Text="Lesson Number:"/>
+                <ComboBox x:Name="LessonNumberComboBox" Width="100" ItemsSource="{Binding LessonNumbers}"/>
+                <Button Content="Add" Click="AddButton_Click"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- DataGrid для отображения расписания -->
+        <DataGrid Grid.Row="1" x:Name="ScheduleDataGrid" AutoGenerateColumns="False" Margin="311,17,10,18">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Group" Binding="{Binding Group.GroupName}"/>
+                <DataGridTextColumn Header="Subject" Binding="{Binding Subject.SubjectName}"/>
+                <DataGridTextColumn Header="Teacher" Binding="{Binding Teacher.TeacherName}"/>
+                <DataGridTextColumn Header="Cabinet" Binding="{Binding Cabinet.Number_cabinet}"/>
+                <DataGridTextColumn Header="Lesson Date" Binding="{Binding LessonDate}"/>
+                <DataGridTextColumn Header="Lesson Number" Binding="{Binding LessonNumber}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

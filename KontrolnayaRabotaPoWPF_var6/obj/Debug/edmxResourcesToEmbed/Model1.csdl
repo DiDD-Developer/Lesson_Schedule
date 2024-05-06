@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MaslovD_SturinAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cabinet">
+    <Key>
+      <PropertyRef Name="CabinetId" />
+    </Key>
+    <Property Name="CabinetId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Number_cabinet" Type="Int32" />
+    <NavigationProperty Name="Schedule" Relationship="Self.FK__Schedule__Cabine__18EBB532" FromRole="Cabinet" ToRole="Schedule" />
+  </EntityType>
+  <EntityType Name="Groups">
+    <Key>
+      <PropertyRef Name="GroupId" />
+    </Key>
+    <Property Name="GroupId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Schedule" Relationship="Self.FK__Schedule__GroupI__160F4887" FromRole="Groups" ToRole="Schedule" />
+  </EntityType>
+  <EntityType Name="Schedule">
+    <Key>
+      <PropertyRef Name="ScheduleId" />
+    </Key>
+    <Property Name="ScheduleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GroupId" Type="Int32" />
+    <Property Name="TeacherId" Type="Int32" />
+    <Property Name="SubjectId" Type="Int32" />
+    <Property Name="CabinetId" Type="Int32" />
+    <Property Name="LessonDate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Cabinet" Relationship="Self.FK__Schedule__Cabine__18EBB532" FromRole="Schedule" ToRole="Cabinet" />
+    <NavigationProperty Name="Groups" Relationship="Self.FK__Schedule__GroupI__160F4887" FromRole="Schedule" ToRole="Groups" />
+    <NavigationProperty Name="Subjects" Relationship="Self.FK__Schedule__Subjec__17F790F9" FromRole="Schedule" ToRole="Subjects" />
+    <NavigationProperty Name="Teachers" Relationship="Self.FK__Schedule__Teache__17036CC0" FromRole="Schedule" ToRole="Teachers" />
+  </EntityType>
+  <EntityType Name="Subjects">
+    <Key>
+      <PropertyRef Name="SubjectId" />
+    </Key>
+    <Property Name="SubjectId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SubjectName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Schedule" Relationship="Self.FK__Schedule__Subjec__17F790F9" FromRole="Subjects" ToRole="Schedule" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Teachers">
+    <Key>
+      <PropertyRef Name="TeacherId" />
+    </Key>
+    <Property Name="TeacherId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TeacherName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Schedule" Relationship="Self.FK__Schedule__Teache__17036CC0" FromRole="Teachers" ToRole="Schedule" />
+  </EntityType>
+  <Association Name="FK__Schedule__Cabine__18EBB532">
+    <End Role="Cabinet" Type="Self.Cabinet" Multiplicity="0..1" />
+    <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cabinet">
+        <PropertyRef Name="CabinetId" />
+      </Principal>
+      <Dependent Role="Schedule">
+        <PropertyRef Name="CabinetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Schedule__GroupI__160F4887">
+    <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+    <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="GroupId" />
+      </Principal>
+      <Dependent Role="Schedule">
+        <PropertyRef Name="GroupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Schedule__Subjec__17F790F9">
+    <End Role="Subjects" Type="Self.Subjects" Multiplicity="0..1" />
+    <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subjects">
+        <PropertyRef Name="SubjectId" />
+      </Principal>
+      <Dependent Role="Schedule">
+        <PropertyRef Name="SubjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Schedule__Teache__17036CC0">
+    <End Role="Teachers" Type="Self.Teachers" Multiplicity="0..1" />
+    <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Teachers">
+        <PropertyRef Name="TeacherId" />
+      </Principal>
+      <Dependent Role="Schedule">
+        <PropertyRef Name="TeacherId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MaslovD_SturinAEntities3" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cabinet" EntityType="Self.Cabinet" />
+    <EntitySet Name="Groups" EntityType="Self.Groups" />
+    <EntitySet Name="Schedule" EntityType="Self.Schedule" />
+    <EntitySet Name="Subjects" EntityType="Self.Subjects" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="Teachers" EntityType="Self.Teachers" />
+    <AssociationSet Name="FK__Schedule__Cabine__18EBB532" Association="Self.FK__Schedule__Cabine__18EBB532">
+      <End Role="Cabinet" EntitySet="Cabinet" />
+      <End Role="Schedule" EntitySet="Schedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Schedule__GroupI__160F4887" Association="Self.FK__Schedule__GroupI__160F4887">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="Schedule" EntitySet="Schedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Schedule__Subjec__17F790F9" Association="Self.FK__Schedule__Subjec__17F790F9">
+      <End Role="Subjects" EntitySet="Subjects" />
+      <End Role="Schedule" EntitySet="Schedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Schedule__Teache__17036CC0" Association="Self.FK__Schedule__Teache__17036CC0">
+      <End Role="Teachers" EntitySet="Teachers" />
+      <End Role="Schedule" EntitySet="Schedule" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

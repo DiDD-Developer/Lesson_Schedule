@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="464d780d66b3458296465b3b901e8761" Name="Diagram1">
+        <EntityTypeShape EntityType="KontrolnayaRabotaPoWPF_var6Model.Groups" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="KontrolnayaRabotaPoWPF_var6Model.Schedule" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="KontrolnayaRabotaPoWPF_var6Model.Subjects" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="KontrolnayaRabotaPoWPF_var6Model.sysdiagrams" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="KontrolnayaRabotaPoWPF_var6Model.Teachers" Width="1.5" PointX="0.75" PointY="7" IsExpanded="true" />
+        <AssociationConnector Association="KontrolnayaRabotaPoWPF_var6Model.FK__Schedule__GroupI__5AEE82B9" ManuallyRouted="false" />
+        <AssociationConnector Association="KontrolnayaRabotaPoWPF_var6Model.FK__Schedule__Subjec__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="KontrolnayaRabotaPoWPF_var6Model.FK__Schedule__Teache__5BE2A6F2" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

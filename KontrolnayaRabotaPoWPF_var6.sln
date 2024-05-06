@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KontrolnayaRabotaPoWPF_var6", "KontrolnayaRabotaPoWPF_var6\KontrolnayaRabotaPoWPF_var6.csproj", "{DC3C3DE4-F05A-47FA-A169-8EE6AE9B4593}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC3C3DE4-F05A-47FA-A169-8EE6AE9B4593}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC3C3DE4-F05A-47FA-A169-8EE6AE9B4593}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC3C3DE4-F05A-47FA-A169-8EE6AE9B4593}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC3C3DE4-F05A-47FA-A169-8EE6AE9B4593}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B934BD22-349F-48C9-8673-A7166BEBBBB6}
+	EndGlobalSection
+EndGlobal
